@@ -34,9 +34,16 @@ const App = () => {
   const [showUI, setShowUI] = useState(false);
   const handleSubmit = () => {
     if (expression.test(inputState)) {
-      setEndpoint(
-        inputState.split("v=")[1].substring(0, inputState.length - 1)
-      );
+      if (inputState.includes("v="))
+        setEndpoint(
+          inputState.split("v=")[1].substring(0, inputState.length - 1)
+        );
+      else if (inputState.includes("https://youtu.be/"))
+        setEndpoint(
+          inputState
+            .split("https://youtu.be/JUMLOXFd2TU")[1]
+            .substring(0, inputState.length - 1)
+        );
       setShowUI(true);
     } else {
       console.log(inputState);
