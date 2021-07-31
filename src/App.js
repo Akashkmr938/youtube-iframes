@@ -38,11 +38,9 @@ const App = () => {
         setEndpoint(
           inputState.split("v=")[1].substring(0, inputState.length - 1)
         );
-      else if (inputState.includes("https://youtu.be/"))
+      else if (inputState.includes("youtu.be/"))
         setEndpoint(
-          inputState
-            .split("https://youtu.be/JUMLOXFd2TU")[1]
-            .substring(0, inputState.length - 1)
+          inputState.split("youtu.be/")[1].substring(0, inputState.length - 1)
         );
       setShowUI(true);
     } else {
