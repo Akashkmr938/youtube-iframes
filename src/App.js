@@ -81,7 +81,7 @@ const App = () => {
                 Play All
               </button>
             </div>
-            {[...Array(200)].map((e, index) => (
+            {[...Array(50)].map((e, index) => (
               <div key={index} style={{ margin: "15px" }}>
                 <iframe
                   loading="lazy"
