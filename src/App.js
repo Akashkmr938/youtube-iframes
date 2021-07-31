@@ -32,6 +32,7 @@ const App = () => {
   const [inputState, setInputState] = useState("");
   const [endpoint, setEndpoint] = useState("");
   const [showUI, setShowUI] = useState(false);
+  const [playAll, setPlayAll] = useState(0);
   const handleSubmit = () => {
     if (expression.test(inputState)) {
       if (inputState.includes("v="))
@@ -63,21 +64,39 @@ const App = () => {
       <div
         style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}
       >
-        {showUI &&
-          [...Array(50)].map((e, index) => (
-            <div key={index} style={{ margin: "15px" }}>
-              <iframe
-                loading="lazy"
-                width="300"
-                height="200"
-                src={`https://www.youtube.com/embed/${endpoint}`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+        {showUI && (
+          <>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                width: "100%",
+              }}
+            >
+              <button
+                type="button"
+                style={style.button}
+                onClick={() => setPlayAll(1)}
+              >
+                Play All
+              </button>
             </div>
-          ))}
+            {[...Array(50)].map((e, index) => (
+              <div key={index} style={{ margin: "15px" }}>
+                <iframe
+                  loading="lazy"
+                  width="300"
+                  height="200"
+                  src={`https://www.youtube.com/embed/${endpoint}?autoplay=${playAll}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </div>
   );
