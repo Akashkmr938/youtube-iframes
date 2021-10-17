@@ -81,13 +81,13 @@ const App = () => {
                 Play All
               </button>
             </div>
-            {[...Array(50)].map((e, index) => (
+            {[...Array(20)].map((e, index) => (
               <div key={index} style={{ margin: "15px" }}>
                 <iframe
                   loading="lazy"
-                  width="300"
-                  height="200"
-                  src={`https://www.youtube.com/embed/${endpoint}?autoplay=${playAll}`}
+                  width="200"
+                  height="150"
+                  src={`https://www.youtube.com/embed/${endpoint}?autoplay=${playAll}&vq=tiny`}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
